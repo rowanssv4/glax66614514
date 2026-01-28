@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="114514">
-    <title>台灣特色介紹</title>
+    <meta name="description" content="探索台灣之美，體驗在地文化、品嚐道地美食，感受人情味濃厚的寶島生活。">
+    <title>台灣特色介紹 | 寶島風情</title>
     <style>
         * {
             box-sizing: border-box;
@@ -56,11 +56,16 @@
             color: #1abc9c;
         }
 
+        main {
+            padding-bottom: 40px;
+        }
+
         .hero {
             background-color: #fff;
             text-align: center;
-            padding: 60px 20px;
+            padding: 60px 20px 30px;
             margin-bottom: 20px;
+            border-radius: 0 0 8px 8px;
         }
 
         .hero h1 {
@@ -72,21 +77,51 @@
         .hero p {
             font-size: 1.2rem;
             color: #666;
+            margin-bottom: 25px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #16a085;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin: 50px 0 30px;
         }
 
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 0;
+            gap: 25px;
         }
 
         .card {
             background: #fff;
-            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.2s;
+            overflow: hidden;
             border-top: 4px solid #1abc9c;
         }
 
@@ -94,50 +129,54 @@
             transform: translateY(-5px);
         }
 
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
         .card h3 {
             margin-bottom: 15px;
             color: #2c3e50;
+            font-size: 1.3rem;
         }
+
+        .info-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 50px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            background: #fff;
+            margin-top: 20px;
         }
 
         th, td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
             text-align: left;
         }
 
         th {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             font-weight: bold;
+            color: #2c3e50;
         }
 
         footer {
             background-color: #34495e;
             color: #ecf0f1;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #1abc9c;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background-color: #16a085;
+            padding: 30px 0;
+            margin-top: 60px;
         }
 
         @media (max-width: 600px) {
@@ -145,10 +184,13 @@
                 flex-direction: column;
             }
             .nav-links {
-                margin-top: 15px;
+                margin-top: 20px;
             }
             .nav-links a {
                 margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -161,8 +203,8 @@
                 <div class="logo">寶島風情</div>
                 <div class="nav-links">
                     <a href="#">首頁</a>
-                    <a href="#">關於我們</a>
-                    <a href="#">聯絡資訊</a>
+                    <a href="#">景點導覽</a>
+                    <a href="#">認識台灣</a>
                 </div>
             </nav>
         </div>
@@ -172,30 +214,39 @@
         
         <section class="hero">
             <h1>探索台灣之美</h1>
-            <p>體驗在地文化、品嚐道地美食，感受人情味濃厚的寶島生活。</p>
-            <a href="#" class="btn">立即預約行程</a>
+            <p>匯聚現代都會與壯麗自然，體驗獨特的海島文化魅力。</p>
+            <a href="#" class="btn">瞭解更多</a>
+            <br><br>
+            <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?auto=format&fit=crop&w=1374&q=80" alt="台北101大樓與城市天際線" class="hero-image">
         </section>
-        
-        
 
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+        <h2 class="section-title">更多特色</h2>
 
         <div class="features">
             <div class="card">
-                <h3>🇹🇼 在地文化</h3>
-                <p>從熱鬧的夜市到莊嚴的廟宇，台灣擁有豐富多元的文化底蘊。無論是傳統節慶或是現代藝術，都展現了這塊土地獨特的生命力。</p>
+                <img src="https://images.unsplash.com/photo-1568227593642-de589c0a3c54?auto=format&fit=crop&w=500&q=60" alt="台灣傳統廟宇" class="card-img">
+                <div class="card-content">
+                    <h3>🇹🇼 在地文化</h3>
+                    <p>從熱鬧的夜市到莊嚴的廟宇，台灣擁有豐富多元的文化底蘊。無論是傳統節慶或是現代藝術，都展現了這塊土地獨特的生命力。</p>
+                </div>
             </div>
             <div class="card">
-                <h3>🍜 特色美食</h3>
-                <p>被譽為美食王國，這裡有舉世聞名的珍珠奶茶、滷肉飯以及牛肉麵。巷弄間的古早味小吃更是讓人流連忘返。</p>
+                <img src="https://images.unsplash.com/photo-1552424462-4c28146209d6?auto=format&fit=crop&w=500&q=60" alt="台灣特色小吃小籠包" class="card-img">
+                <div class="card-content">
+                    <h3>🍜 特色美食</h3>
+                    <p>被譽為美食王國，這裡有舉世聞名的珍珠奶茶、小籠包以及牛肉麵。巷弄間的古早味小吃更是讓人流連忘返。</p>
+                </div>
             </div>
             <div class="card">
-                <h3>🏔️ 自然景觀</h3>
-                <p>台灣雖小，地貌卻極其豐富。高山聳立的中央山脈、壯麗的太魯閣峽谷，以及四面環海的蔚藍海岸線，美不勝收。</p>
+                <img src="https://images.unsplash.com/photo-1571495356517-4779c3675964?auto=format&fit=crop&w=500&q=60" alt="花蓮太魯閣峽谷" class="card-img">
+                <div class="card-content">
+                    <h3>🏔️ 自然景觀</h3>
+                    <p>台灣雖小，地貌卻極其豐富。高山聳立的中央山脈、壯麗的太魯閣峽谷，以及四面環海的蔚藍海岸線，美不勝收。</p>
+                </div>
             </div>
         </div>
 
-        <section style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <section class="info-section">
             <h2 style="margin-bottom: 20px; color: #2c3e50;">旅遊資訊概覽</h2>
             <table>
                 <thead>
@@ -207,24 +258,24 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>官方語言</td>
+                        <td>通用語言</td>
                         <td>繁體中文 (Traditional Chinese)</td>
-                        <td>部分地區通行台語、客語</td>
+                        <td>多數民眾通曉台語或客語</td>
                     </tr>
                     <tr>
                         <td>貨幣單位</td>
                         <td>新台幣 (NTD)</td>
-                        <td>各大超商可使用電子支付</td>
+                        <td>四大超商及多數店家支援行動支付</td>
                     </tr>
                     <tr>
-                        <td>交通工具</td>
+                        <td>大眾運輸</td>
                         <td>捷運 (MRT)、高鐵 (HSR)、公車</td>
-                        <td>台北與高雄皆有捷運系統</td>
+                        <td>雙北及高雄地區捷運路網發達</td>
                     </tr>
                     <tr>
                         <td>電壓標準</td>
                         <td>110V / 60Hz</td>
-                        <td>雙孔扁型插座</td>
+                        <td>雙孔扁型插座 (Type A)</td>
                     </tr>
                 </tbody>
             </table>
@@ -234,7 +285,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 寶島風情網頁範例. 版權所有.</p>
+            <p>&copy; 2026 寶島風情. 版權所有.</p>
         </div>
     </footer>
 
