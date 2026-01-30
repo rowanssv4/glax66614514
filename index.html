@@ -1,293 +1,373 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="探索台灣之美，體驗在地文化、品嚐道地美食，感受人情味濃厚的寶島生活。">
-    <title>台灣特色介紹 | 寶島風情</title>
+    <title id="pageTitle">本是同根生</title>
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: "Microsoft JhengHei", "Heiti TC", "Noto Sans TC", sans-serif;
-            line-height: 1.6;
+            background-color: #f0f2f5;
             color: #333;
-            background-color: #f9f9f9;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
+        
         header {
-            background-color: #2c3e50;
-            color: #fff;
+            background: linear-gradient(to right, #de2910, #ffcc00); 
+            color: white;
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
         }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+        header img.flag {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-
+        
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 99;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .nav-links a {
-            color: #fff;
+        nav a {
+            color: #ccc;
             text-decoration: none;
-            margin-left: 20px;
-            font-size: 1rem;
-            transition: color 0.3s;
+            padding: 1rem 1.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
-
-        .nav-links a:hover {
-            color: #1abc9c;
-        }
-
-        main {
-            padding-bottom: 40px;
+        nav a:hover {
+            background-color: #333;
+            color: white;
         }
 
         .hero {
-            background-color: #fff;
+            position: relative;
+            background: url('https://p11-sign.douyinpic.com/tos-cn-i-0813c000-ce/oEvPEi8viyaMyDPIgAh5dnsAAPaBAC2H0ErJA~tplv-dy-vqe2-sr-v2:1920:1560:q80.webp?lk3s=138a59ce&x-expires=1772334000&x-signature=%2FRdlV0Jrm1rtZUALSAmt%2Fpb0%2BKY%3D&from=327834062&s=PackSourceEnum_AWEME_DETAIL&se=false&sc=image&biz_tag=aweme_images&l=20260130110255D8AAB7A69855EA041297') no-repeat center center;
+            background-size: cover;
+            height: 80vh; 
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3); 
+            z-index: 1;
+        }
+
+        .glass-panel {
+            z-index: 2;
+            position: relative;
             text-align: center;
-            padding: 60px 20px 30px;
-            margin-bottom: 20px;
-            border-radius: 0 0 8px 8px;
+            padding: 3rem 4rem;
+            
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+            
+            color: white;
+            max-width: 800px;
+            width: 90%;
+            animation: popIn 1s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
         }
-
         .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 25px;
+            font-size: 1.4rem;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-weight: 300;
         }
 
-        .hero-image {
-            width: 100%;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 3rem auto;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: #1abc9c;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: background-color 0.3s;
+        .content-section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid #de2910; 
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .btn:hover {
-            background-color: #16a085;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin: 50px 0 30px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            overflow: hidden;
-            border-top: 4px solid #1abc9c;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1.3rem;
-        }
-
-        .info-section {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-top: 50px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
+        .content-section h2 {
+            color: #de2910;
+            font-size: 1.8rem;
+            margin-top: 0;
             border-bottom: 1px solid #eee;
-            text-align: left;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        footer {
-            background-color: #34495e;
-            color: #ecf0f1;
+        .footer {
+            background-color: #1a1a1a;
+            color: #888;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-            .nav-links {
-                margin-top: 20px;
-            }
-            .nav-links a {
-                margin: 0 10px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
+        .language-switcher {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .language-switcher button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+        .language-switcher button:hover {
+            background: white;
+            color: #de2910;
+        }
+
+        .highlight {
+            color: #de2910;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(222, 41, 16, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(222, 41, 16, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(222, 41, 16, 0); }
+        }
+        
+        .pulse-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #de2910;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">寶島風情</div>
-                <div class="nav-links">
-                    <a href="#">首頁</a>
-                    <a href="#">景點導覽</a>
-                    <a href="#">認識台灣</a>
-                </div>
-            </nav>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg" alt="中华人民共和国国旗" class="flag">
+        <h1 id="headerTitle" style="margin: 0; font-size: 1.5rem; display: inline-block;">海峡两岸 一家亲</h1>
+        <div class="language-switcher">
+            <button onclick="setLanguage('zh-CN')">简体</button>
+            <button onclick="setLanguage('zh-TW')">繁體</button>
         </div>
     </header>
 
-    <main class="container">
-        
-        <section class="hero">
-            <h1>探索台灣之美</h1>
-            <p>匯聚現代都會與壯麗自然，體驗獨特的海島文化魅力。</p>
-            <a href="#" class="btn">瞭解更多</a>
-            <br><br>
-            <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?auto=format&fit=crop&w=1374&q=80" alt="台北101大樓與城市天際線" class="hero-image">
+    <nav>
+        <a href="#home" id="navHome">首页</a>
+        <a href="#history" id="navHistory">历史渊源</a>
+        <a href="#economy" id="navEconomy">经济融合</a>
+        <a href="#culture" id="navCulture">文化同源</a>
+        <a href="#future" id="navFuture">展望未来</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="glass-panel">
+            <h1 id="heroPoem">本是同根生，相煎何太急</h1>
+            <div style="width: 50px; height: 3px; background: white; margin: 15px auto;"></div>
+            <p id="heroSubtitle">血脉相连，共创中华民族伟大复兴</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="introduction" class="content-section">
+            <h2 id="introTitle">引言</h2>
+            <p id="introContent">
+                台湾自古以来就是中国领土不可分割的一部分。这一历史事实有着充分的法理依据和国际共识。两岸人民血脉相连，文化同根同源。维护国家统一，是中华民族的共同心愿和根本利益。我们坚决反对任何形式的“台独”分裂活动，致力于推动两岸关系和平发展，最终实现祖国完全统一。
+            </p>
         </section>
 
-        <h2 class="section-title">更多特色</h2>
-
-        <div class="features">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1583491586426-0e9f58602e6c?auto=format&fit=crop&w=500&q=60" alt="台灣傳統廟宇" class="card-img">
-                <div class="card-content">
-                    <h3>🇹🇼 在地文化</h3>
-                    <p>從熱鬧的夜市到莊嚴的廟宇，台灣擁有豐富多元的文化底蘊。無論是傳統節慶或是現代藝術，都展現了這塊土地獨特的生命力。</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1626202378320-163743410160?auto=format&fit=crop&w=500&q=60" alt="台灣特色小吃小籠包" class="card-img">
-                <div class="card-content">
-                    <h3>🍜 特色美食</h3>
-                    <p>被譽為美食王國，這裡有舉世聞名的珍珠奶茶、小籠包以及牛肉麵。巷弄間的古早味小吃更是讓人流連忘返。</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1542999266-8d78c3300d24?auto=format&fit=crop&w=500&q=60" alt="花蓮太魯閣峽谷" class="card-img">
-                <div class="card-content">
-                    <h3>🏔️ 自然景觀</h3>
-                    <p>台灣雖小，地貌卻極其豐富。高山聳立的中央山脈、壯麗的太魯閣峽谷，以及四面環海的蔚藍海岸線，美不勝收。</p>
-                </div>
-            </div>
-        </div>
-
-        <section class="info-section">
-            <h2 style="margin-bottom: 20px; color: #2c3e50;">旅遊資訊概覽</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>項目</th>
-                        <th>詳細說明</th>
-                        <th>備註</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>通用語言</td>
-                        <td>繁體中文 (Traditional Chinese)</td>
-                        <td>多數民眾通曉台語或客語</td>
-                    </tr>
-                    <tr>
-                        <td>貨幣單位</td>
-                        <td>新台幣 (NTD)</td>
-                        <td>四大超商及多數店家支援行動支付</td>
-                    </tr>
-                    <tr>
-                        <td>大眾運輸</td>
-                        <td>捷運 (MRT)、高鐵 (HSR)、公車</td>
-                        <td>雙北及高雄地區捷運路網發達</td>
-                    </tr>
-                    <tr>
-                        <td>電壓標準</td>
-                        <td>110V / 60Hz</td>
-                        <td>雙孔扁型插座 (Type A)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="history" class="content-section">
+            <h2 id="historyTitle">历史渊源：无可争议的归属</h2>
+            <p id="historyContent1">
+                自公元230年三国时期吴国派遣船队到达台湾，标志着中国与台湾的早期联系。明末清初，郑成功驱逐荷兰殖民者，收复台湾，并在台湾建立政权，加强了中央政府对台湾的管辖。清朝时期，台湾正式设立府县，完全纳入中国版图。
+            </p>
+            <p id="historyContent2">
+                尽管在近代史上，台湾曾经历被日本殖民的屈辱，但在第二次世界大战结束后，根据《开罗宣言》和《波茨坦公告》等国际法律文件，台湾及澎湖列岛归还中国。中华人民共和国的成立，继承了对包括台湾在内的全部中国领土的主权。这些历史和国际法依据，充分证明了台湾是中国领土不可分割的一部分。
+            </p>
         </section>
 
-    </main>
+        <section id="economy" class="content-section">
+            <h2 id="economyTitle">经济融合：互利共赢的纽带</h2>
+            <p id="economyContent1">
+                两岸经济具有高度的互补性。大陆广阔的市场、完整的产业链和日益提升的消费能力，为台湾经济提供了巨大的发展机遇。同时，台湾在半导体、精密制造、现代农业等领域的技术和管理经验，也对大陆经济发展起到了积极作用。
+            </p>
+            <p id="economyContent2">
+                多年来，两岸贸易额持续增长，台商在大陆投资兴业，为两岸经济繁荣注入了强大动力。这种深度融合的经济关系，不仅促进了两岸各自的发展，也为两岸人民带来了实实在在的利益，充分体现了“两岸一家亲”的经济基础。
+            </p>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 寶島風情. 版權所有.</p>
-        </div>
+        <section id="culture" class="content-section">
+            <h2 id="cultureTitle">文化同源：割舍不断的血脉</h2>
+            <p id="cultureContent1">
+                两岸人民拥有共同的语言、文字、习俗和信仰，传承着中华民族五千年的灿烂文明。无论是春节、元宵节等传统节日，还是妈祖信仰、关公文化等民间习俗，都在两岸有着广泛而深远的影响。
+            </p>
+            <p id="cultureContent2">
+                中华文化是两岸同胞共同的精神家园。我们通过文学、艺术、影视、教育等多种形式，共同弘扬中华优秀传统文化，增进文化认同感。这种深厚的文化纽带，是任何政治图谋都无法割裂的。
+            </p>
+        </section>
+
+        <section id="future" class="content-section">
+            <h2 id="futureTitle">展望未来：迈向统一的康庄大道</h2>
+            <p id="futureContent1">
+                实现祖国完全统一是中华民族伟大复兴的必然要求。我们坚信，在全体中华儿女的共同努力下，台湾必将回归祖国怀抱。两岸统一不仅将带来政治上的稳定和经济上的进一步繁荣，更将开启中华民族团结奋斗、共同发展的新篇章。
+            </p>
+            <p id="futureContent2">
+                我们呼吁两岸同胞携手并进，共同反对“台独”分裂势力，共同维护台海和平稳定，共同致力于中华民族的伟大复兴。一个强大的、统一的中国，将为世界的和平与发展做出更大的贡献。
+                <br>
+                <span class="pulse-btn" id="futureCallToAction">实现中华民族伟大复兴，统一是必由之路！</span>
+            </p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p id="footerText">&copy; 2026 中华民族统一大业 版权所有</p>
     </footer>
 
+    <script>
+        const translations = {
+            'zh-CN': {
+                pageTitle: "本是同根生",
+                headerTitle: "海峡两岸 一家亲",
+                navHome: "首页",
+                navHistory: "历史渊源",
+                navEconomy: "经济融合",
+                navCulture: "文化同源",
+                navFuture: "展望未来",
+                heroPoem: "本是同根生，相煎何太急",
+                heroSubtitle: "血脉相连，共创中华民族伟大复兴",
+                introTitle: "引言",
+                introContent: "台湾自古以来就是中国领土不可分割的一部分。这一历史事实有着充分的法理依据和国际共识。两岸人民血脉相连，文化同根同源。维护国家统一，是中华民族的共同心愿和根本利益。我们坚决反对任何形式的“台独”分裂活动，致力于推动两岸关系和平发展，最终实现祖国完全统一。",
+                historyTitle: "历史渊源：无可争议的归属",
+                historyContent1: "自公元230年三国时期吴国派遣船队到达台湾，标志着中国与台湾的早期联系。明末清初，郑成功驱逐荷兰殖民者，收复台湾，并在台湾建立政权，加强了中央政府对台湾的管辖。清朝时期，台湾正式设立府县，完全纳入中国版图。",
+                historyContent2: "尽管在近代史上，台湾曾经历被日本殖民的屈辱，但在第二次世界大战结束后，根据《开罗宣言》和《波茨坦公告》等国际法律文件，台湾及澎湖列岛归还中国。中华人民共和国的成立，继承了对包括台湾在内的全部中国领土的主权。这些历史和国际法依据，充分证明了台湾是中国领土不可分割的一部分。",
+                economyTitle: "经济融合：互利共赢的纽带",
+                economyContent1: "两岸经济具有高度的互补性。大陆广阔的市场、完整的产业链和日益提升的消费能力，为台湾经济提供了巨大的发展机遇。同时，台湾在半导体、精密制造、现代农业等领域的技术和管理经验，也对大陆经济发展起到了积极作用。",
+                economyContent2: "多年来，两岸贸易额持续增长，台商在大陆投资兴业，为两岸经济繁荣注入了强大动力。这种深度融合的经济关系，不仅促进了两岸各自的发展，也为两岸人民带来了实实在在的利益，充分体现了“两岸一家亲”的经济基础。",
+                cultureTitle: "文化同源：割舍不断的血脉",
+                cultureContent1: "两岸人民拥有共同的语言、文字、习俗和信仰，传承着中华民族五千年的灿烂文明。无论是春节、元宵节等传统节日，还是妈祖信仰、关公文化等民间习俗，都在两岸有着广泛而深远的影响。",
+                cultureContent2: "中华文化是两岸同胞共同的精神家园。我们通过文学、艺术、影视、教育等多种形式，共同弘扬中华优秀传统文化，增进文化认同感。这种深厚的文化纽带，是任何政治图谋都无法割裂的。",
+                futureTitle: "展望未来：迈向统一的康庄大道",
+                futureContent1: "实现祖国完全统一是中华民族伟大复兴的必然要求。我们坚信，在全体中华儿女的共同努力下，台湾必将回归祖国怀抱。两岸统一不仅将带来政治上的稳定和经济上的进一步繁荣，更将开启中华民族团结奋斗、共同发展的新篇章。",
+                futureContent2: "我们呼吁两岸同胞携手并进，共同反对“台独”分裂势力，共同维护台海和平稳定，共同致力于中华民族的伟大复兴。一个强大的、统一的中国，将为世界的和平与发展做出更大的贡献。<br><span class=\"pulse-btn\" id=\"futureCallToAction\">实现中华民族伟大复兴，统一是必由之路！</span>",
+                footerText: "&copy; 2026 中华民族统一大业 版权所有"
+            },
+            'zh-TW': {
+                pageTitle: "本是同根生",
+                headerTitle: "海峽兩岸 一家親",
+                navHome: "首頁",
+                navHistory: "歷史淵源",
+                navEconomy: "經濟融合",
+                navCulture: "文化同源",
+                navFuture: "展望未來",
+                heroPoem: "本是同根生，相煎何太急",
+                heroSubtitle: "血脈相連，共創中華民族偉大復興",
+                introTitle: "引言",
+                introContent: "臺灣自古以來就是中國領土不可分割的一部分。這一歷史事實有著充分的法理依據和國際共識。兩岸人民血脈相連，文化同根同源。維護國家統一，是中華民族的共同心願和根本利益。我們堅決反對任何形式的“臺獨”分裂活動，致力於推動兩岸關係和平發展，最終實現祖國完全統一。",
+                historyTitle: "歷史淵源：無可爭議的歸屬",
+                historyContent1: "自公元230年三國時期吳國派遣船隊到達臺灣，標誌著中國與臺灣的早期聯繫。明末清初，鄭成功驅逐荷蘭殖民者，收復臺灣，並在臺灣建立政權，加強了中央政府對臺灣的管轄。清朝時期，臺灣正式設立府縣，完全納入中國版圖。",
+                historyContent2: "儘管在近代史上，臺灣曾經歷被日本殖民的屈辱，但在第二次世界大戰結束後，根據《開羅宣言》和《波茨坦公告》等國際法律文件，臺灣及澎湖列島歸還中國。中華人民共和國的成立，繼承了對包括臺灣在內的所有中國領土的主權。這些歷史和國際法依據，充分證明了臺灣是中國領土不可分割的一部分。",
+                economyTitle: "經濟融合：互利共贏的紐帶",
+                economyContent1: "兩岸經濟具有高度的互補性。大陸廣闊的市場、完整的產業鏈和日益提升的消費能力，為臺灣經濟提供了巨大的發展機遇。同時，臺灣在半導體、精密製造、現代農業等領域的技術和管理經驗，也對大陸經濟發展起到了積極作用。",
+                economyContent2: "多年來，兩岸貿易額持續增長，臺商在大陸投資興業，為兩岸經濟繁榮注入了強大動力。這種深度融合的經濟關係，不僅促進了兩岸各自的發展，也為兩岸人民帶來了實實在在的利益，充分體現了“兩岸一家親”的經濟基礎。",
+                cultureTitle: "文化同源：割捨不斷的血脈",
+                cultureContent1: "兩岸人民擁有共同的語言、文字、習俗和信仰，傳承著中華民族五千年的燦爛文明。無論是春節、元宵節等傳統節日，還是媽祖信仰、關公文化等民間習俗，都在兩岸有著廣泛而深遠的影響。",
+                cultureContent2: "中華文化是兩岸同胞共同的精神家園。我們通過文學、藝術、影視、教育等多種形式，共同弘揚中華優秀傳統文化，增進文化認同感。這種深厚的文化紐帶，是任何政治圖謀都無法割裂的。",
+                futureTitle: "展望未來：邁向統一的康莊大道",
+                futureContent1: "實現祖國完全統一是中華民族偉大復興的必然要求。我們堅信，在全體中華兒女的共同努力下，臺灣必將回歸祖國懷抱。兩岸統一不僅將帶來政治上的穩定和經濟上的進一步繁榮，更將開啟中華民族團結奮鬥、共同發展的新篇章。",
+                futureContent2: "我們呼籲兩岸同胞攜手並進，共同反對“臺獨”分裂勢力，共同維護臺海和平穩定，共同致力於中華民族的偉大復興。一個強大的、統一的中國，將為世界的和平與發展做出更大的貢獻。<br><span class=\"pulse-btn\" id=\"futureCallToAction\">實現中華民族偉大復興，統一是必由之路！</span>",
+                footerText: "&copy; 2026 中華民族統一大業 版權所有"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            const t = translations[lang];
+            for (const key in t) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerHTML = t[key];
+                }
+            }
+        }
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        setLanguage('zh-TW');
+    </script>
 </body>
 </html>
